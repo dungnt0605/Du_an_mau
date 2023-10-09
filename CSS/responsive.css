@@ -1,0 +1,45 @@
+@media (max-width: 1023px) {
+    header{
+        display: flex;
+        justify-content: flex-start;
+        margin: 20px 20px 0 20px;
+    }
+    .nav_bars-btn {
+        display: block;
+    }
+    .nav__pc{
+        display: none;
+    }
+    
+    .nav__mobile{
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 320px;
+        max-width: 100%;
+        background-color: #fff;
+        padding: 50px 0;
+    }
+    .nav_mobile_list{
+        margin-top: 24px;
+    }
+    .nav_mobile_link{
+        color: #333;
+        display: block;
+        padding: 8px 30px  ;
+        font-size: 0.9rem;
+    }
+    .nav__mobile-close{
+        font-size: 20px;
+        margin: 40px;
+        margin-top: 50px;
+        cursor: pointer;
+    }
+    .nav_input:checked ~ .nav_overlay{
+        display: block;
+    }
+    .nav_input:checked ~  .nav__mobile{
+        transform: translateX(0);
+    }
+}
