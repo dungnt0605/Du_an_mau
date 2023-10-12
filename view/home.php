@@ -15,16 +15,30 @@
                     <div class="home_item_box"><img src="https://images.pexels.com/photos/8414449/pexels-photo-8414449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt=""></div>
                 </div>
             </div>
-            
-                <?php require "layout/allSP.php"; ?>
-            
-            
+
+            <?php require "layout/allSP.php"; ?>
+
+
         </main>
 
         <aside class="col-lg-3">
 
             <!-- LOGIN -->
-            <?php require "layout/login.php"; ?>
+            <?php
+            if (isset($_SESSION['user'])) {
+                $user = $_SESSION['user'];
+
+                extract($user);
+                echo "
+                    <div class='home_login flex'>
+                        <img  src= './imageT2/$avatar'  alt=''>
+                        <h3>$name</h3>
+                    </div>
+                    ";
+            } else {
+                require "layout/login.php";
+            }
+            ?>
             <!-- DANH MỤC -->
             <?php require "layout/danh_muc.php"; ?>
             <!-- TOP 10 -->

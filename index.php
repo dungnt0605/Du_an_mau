@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     include "model/binh-luan.php";
     include "model/hang-hoa.php";
     include "model/khach-hang.php";
@@ -24,7 +25,7 @@
                 }
                 break;
             case 'ds_sp_loai':
-                if( isset($_POST['search'])){
+                if( isset($_POST['search']) && isset($_POST['search-btn'])){
                     $ten_hh = $_POST['search'];
                 }else{
                     $ten_hh = "";
@@ -39,6 +40,42 @@
                     $ma_loai = 0;
                 }
                 break; 
+                case 'login' :
+                    if(isset($_POST['login'])){
+                        $name = $_POST['name'];
+                        $pass = $_POST['pass'];
+                        $sdt = $_POST['sdt'];
+                        $email = $_POST['email'];
+                        $adress = $_POST['adress'];
+                        $vai_tro = $_POST['vai_tro'];
+
+                        $image = $_FILES['avatar'];
+                        $avatar = $image['name'];
+                        $target_file = 'imageT2/' . $avatar;
+                        move_uploaded_file($image['tmp_name'], $target_file);
+
+                        khach_hang_insert($name, $pass, $sdt, $email, $avatar, $adress, $vai_tro);
+                        $thongbao = "Đăng nhập thành công , vui lòng đăng nhập !";
+                    }
+                    include "view/tai_khoan/sign_up.php";
+                    break;
+                case 'dangnhap' :
+                    if(isset($_POST['sign_in'])){
+                        $user = $_POST['user'];
+                        $pass = $_POST['pass'];
+                        $check_user = khach_hang_check_by_id($user , $pass);
+                        if(is_array($check_user)){
+                            $_SESSION['user'] = $check_user;
+                            // $value_user  = khach_hang_select_by_id($ma_kh);
+                            // $thongbao = "Bạn đã đăng nhập thành công !";
+                            header('location: index.php');
+                        }else{
+                            $thongbao = "Tài khoản không tồn tại vui lòng kiểm tra hoặc đăng ký !";
+                            include "view/tai_khoan/sign_up.php";
+                        }
+                        
+                    }
+                    break ;
             case 'gioi_thieu':
                 include "view/gioi_thieu.php";
                 break;               

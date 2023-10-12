@@ -1,9 +1,9 @@
 <?php
 require_once 'pdo.php';
 
-function khach_hang_insert($ma_kh, $mat_khau, $ho_ten, $email, $hinh, $kich_hoat, $vai_tro){
-    $sql = "INSERT INTO khach_hang(ma_kh, mat_khau, ho_ten, email, hinh, kich_hoat, vai_tro) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    pdo_execute($sql, $ma_kh, $mat_khau, $ho_ten, $email, $hinh, $kich_hoat==1, $vai_tro==1);
+function khach_hang_insert($name, $pass, $sdt, $email, $avatar, $adress, $vai_tro){
+    $sql = "INSERT INTO `khach_hang`( `pass`, `name`, `avatar`, `email`, `vai_tro`, `dia_chi`, `sdt`) VALUES ('$pass','$name','$avatar','$email','$vai_tro','$adress','$sdt')";
+    pdo_execute($sql);
 }
 
 function khach_hang_update($ma_kh, $mat_khau, $ho_ten, $email, $hinh, $kich_hoat, $vai_tro){
@@ -28,6 +28,10 @@ function khach_hang_select_all(){
     return pdo_query($sql);
 }
 
+function khach_hang_check_by_id($user , $pass){
+    $sql = "SELECT * FROM khach_hang WHERE name='" . $user . "' AND pass='" . $pass . "' ";
+    return pdo_query_one($sql);
+} 
 function khach_hang_select_by_id($ma_kh){
     $sql = "SELECT * FROM khach_hang WHERE ma_kh=?";
     return pdo_query_one($sql, $ma_kh);

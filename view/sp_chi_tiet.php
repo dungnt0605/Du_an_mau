@@ -37,7 +37,8 @@ extract($ten_title);
                             <?php $link_sp = "index.php?act=sanpham_ct&id_sp=" . $value['ma_hh'] . "&id_dm=" . $value['ma_loai']; ?>
 
                             <div class=" list_sp-item">
-                                <a href="<?= $link_sp ?>" class="link_sp">
+                                <a href="<?= $link_sp ?>" >
+                                
                                     <img style="height: 270px; object-fit: cover;" src="./imageT2/<?= $value['image'] ?>" class="" alt="...">
                                     <div class="ad_list-text">
                                         <h3 class="blue"><?= $value['ten_hh'] ?></h3>
