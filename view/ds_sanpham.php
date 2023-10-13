@@ -42,9 +42,6 @@ extract($ten_title);
         </main>
 
         <aside class="col-lg-3">
-
-            <!-- LOGIN -->
-            <?php require "layout/login.php"; ?>
             <!-- DANH MỤC -->
             <?php require "layout/danh_muc.php"; ?>
             <!-- TOP 10 -->

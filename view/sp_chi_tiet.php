@@ -20,13 +20,19 @@ extract($ten_title);
                         <i class="fa-solid fa-star " style="color: #f7e418;font-size: 13px;"></i>
                         <i class="fa-solid fa-star " style="color: #f7e418;font-size: 13px;"></i>
                     </div>
-                    <p><?= $mo_ta ?></p>
+                    <p>Giống mèo : <?= $ten_loai ?></p>
+                    <p>Xuất xứ : Việt Nam</p>
+                    <p>Sức khỏe : Đã tiêm 2 mũi</p>
                     <div class="flex">
-                        <button type="submit" name="add_card" class="cam-btn" >Thêm vào giỏ hàng</button>
+                        <button type="submit" name="add_card" class="cam-btn">Thêm vào giỏ hàng</button>
                         <button type="submit" name="buy_now" class="blue-btn">Mua ngay</button>
                     </div>
                 </div>
 
+            </div>
+            <div class="mota mt-5">
+                <h2>Mô Tả :</h2> <br>
+                <p><?= $mo_ta ?></p>
             </div>
             <div class="extend_sp">
                 <div class="sp_new_10">
@@ -37,8 +43,8 @@ extract($ten_title);
                             <?php $link_sp = "index.php?act=sanpham_ct&id_sp=" . $value['ma_hh'] . "&id_dm=" . $value['ma_loai']; ?>
 
                             <div class=" list_sp-item">
-                                <a href="<?= $link_sp ?>" >
-                                
+                                <a href="<?= $link_sp ?>">
+
                                     <img style="height: 270px; object-fit: cover;" src="./imageT2/<?= $value['image'] ?>" class="" alt="...">
                                     <div class="ad_list-text">
                                         <h3 class="blue"><?= $value['ten_hh'] ?></h3>
@@ -66,8 +72,6 @@ extract($ten_title);
 
         <aside class="col-lg-3">
 
-            <!-- LOGIN -->
-            <?php require "layout/login.php"; ?>
             <!-- DANH MỤC -->
             <?php require "layout/danh_muc.php"; ?>
             <!-- TOP 10 -->

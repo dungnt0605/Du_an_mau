@@ -20,13 +20,16 @@
             <img src="./imageT2/logo/51456b4063722b731891adeb090b6d5b-removebg-preview 1.png" alt="logo">
             
         </div>
-        <nav class="nav__pc">
+        <nav class="nav__pc flex">
             <ul class="nav_list flex">
                 <li><a class="fw-bold" href="index.php">TRANG CHỦ</a></li>
                 <li><a class="fw-bold" href="index.php?act=gioi_thieu">GIỚI THIỆU</a></li>
                 <li><a class="fw-bold" href="index.php?act=lien_he">LIÊN HỆ</a></li>
                 <li><a class="fw-bold" href="index.php?act=hoi_dap">HỎI ĐÁP</a></li>
             </ul>
+            <?php
+                require "layout/login.php";
+            ?>
         </nav>
         <label for="nav_mobile_input" class="nav_bars-btn"><i class="fa-solid fa-bars"></i></label>
 
@@ -43,5 +46,6 @@
                 <li><a class="nav_mobile_link fw-bold" href="index.php?act=lien_he">LIÊN HỆ</a></li>
                 <li><a class="nav_mobile_link fw-bold" href="index.php?act=hoi_dap">HỎI ĐÁP</a></li>
             </ul>
+           
         </nav>
     </header>

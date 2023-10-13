@@ -50,12 +50,10 @@
 
         <aside class="col-lg-3">
 
-            <!-- LOGIN -->
-            <?php require "layout/login.php"; ?>
             <!-- DANH MỤC -->
-            <?php require "layout/danh_muc.php"; ?>
+            <?php require "view/layout/danh_muc.php"; ?>
             <!-- TOP 10 -->
-            <?php require "layout/top10.php"; ?>
+            <?php require "view/layout/top10.php"; ?>
 
         </aside>
     </div>

@@ -22,23 +22,6 @@
         </main>
 
         <aside class="col-lg-3">
-
-            <!-- LOGIN -->
-            <?php
-            if (isset($_SESSION['user'])) {
-                $user = $_SESSION['user'];
-
-                extract($user);
-                echo "
-                    <div class='home_login flex'>
-                        <img  src= './imageT2/$avatar'  alt=''>
-                        <h3>$name</h3>
-                    </div>
-                    ";
-            } else {
-                require "layout/login.php";
-            }
-            ?>
             <!-- DANH MỤC -->
             <?php require "layout/danh_muc.php"; ?>
             <!-- TOP 10 -->
