@@ -57,10 +57,6 @@ if (isset($_GET['act']) && $_GET['act']) {
                 $thongbao = "Đăng nhập thành công , vui lòng đăng nhập !";
             }
             include "view/tai_khoan/sign_up.php";
-            break;
-        case 'sign_in':
-            include "view/tai_khoan/sign_in.php";
-            break;
         case 'dangnhap':
             if (isset($_POST['sign_in'])) {
                 $user = $_POST['user'];
@@ -77,8 +73,17 @@ if (isset($_GET['act']) && $_GET['act']) {
                 }
             }
             break;
-        case 'out_taikhoan':
+    
 
+        case 'sign_in':
+            include "view/tai_khoan/sign_in.php";
+            break;
+        
+        case 'out_taikhoan':
+            // unset($_SESSION['ten_bien']); Xóa 1 session hoặc nhiều sesion
+            //session_destroy();hàm được sử dụng để xóa hoặc kết thúc một phiên đã tồn tại.
+            session_unset();//bỏ hết session 
+            header('location: index.php');
             break;
         
         case 'edit_taikhoan':
@@ -100,7 +105,7 @@ if (isset($_GET['act']) && $_GET['act']) {
                 move_uploaded_file($image['tmp_name'], $target_file);
                 khach_hang_update($pass, $name , $sdt,  $email ,$avatar, $adress, $vai_tro ,$ma_kh);
                 $_SESSION['user'] = khach_hang_check_by_id($name , $pass);
-                $thongbao = "Cập nhật thành công , vui lòng đăng nhập !";
+                $thongbao = "Cập nhật thành công !";
                 header('location: index.php?act=edit_taikhoan');
             }
             include "view/tai_khoan/edit_taikhoan.php";
@@ -108,6 +113,18 @@ if (isset($_GET['act']) && $_GET['act']) {
             break;
 
         case 'quen_mk' :
+            if (isset($_POST['quen_mk'])) {
+                $email = $_POST['email'];
+                
+                $check_email = khach_hang_check_by_email($email);
+                if(is_array($check_email)){
+
+                    $thongbao = "Mật khẩu bạn là :" . $check_email['pass'];
+                }else{
+                    $thongbao = "Không có tài khoản như vậy !";
+                }
+            }
+            include "view/tai_khoan/quen_mat_khau.php";
             break;
         case 'gioi_thieu':
             include "view/gioi_thieu.php";

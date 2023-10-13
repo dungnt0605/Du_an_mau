@@ -195,7 +195,7 @@ button{
 }
 /* ============================ Home - Danh sach sản phẩm ================== */
 .sp_new_10 h2{
-    margin: 50px 0 20px 0;
+    margin: 0px 0 20px 0;
 }
 
 .admin_list_sp{
@@ -288,7 +288,25 @@ button{
 .home_login h2{
     color: red;
 }
-
+.home_login .user-small{
+    display: none;
+}
+.home_login .sign-in:hover .user-small{
+    display: block;
+} 
+.home_login .user-small{
+    background-color: var(--xam);
+    position: absolute;
+    top: 13%;
+    border-radius: 5px;
+    padding-bottom: 10px;
+    z-index: 2;
+}
+.home_login .user-small li{
+    border-bottom: 1px solid var(--blue);
+    padding: 10px 10px  0 10px;
+    
+}
 /* ============================ Home - list  sản phẩm ================== */
 .home_list-group {
     width: 20rem;
@@ -296,8 +314,9 @@ button{
     flex-direction: column;
     justify-content: center;
     align-content: stretch;
-    margin: 30px 0;
+    margin: 0;
     overflow: hidden;
+    z-index: 55;
 }
 .home_list-group h3,
 .home_list-group form{
@@ -315,13 +334,15 @@ button{
     background-color: #fff;
     padding: 0 20px;
     margin: 0;
+    border: 1px solid var(--blue);
 }
 .ds_search{
     max-width: fit-content;
-    padding: 5px 10px;
+    padding: 5px 17px;
 }
 .ds_search button{
     width: 5rem;
+    
 }
 /* ============================ Home - list  sản phẩm top 10 ================== */
 .home_list_top10 {
@@ -382,35 +403,7 @@ button{
 .Danhmuc_add .reset{
     background-color: #c66b3d;
 }
-/* ===========================Danh mục - danhsach ============================= */
-.sp_ds_loai{
-    border-collapse: collapse;
 
-}
-.sp_ds_loai button{
-    padding: 8px 10px;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-}
-.sp_ds_loai .dm_add_loai_link button{
-    margin: 20px 9rem;
-    padding: 8px 10px;
-    background-color: var(--blue);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-}
-.dm_ds_edit{
-    background-color: var(--blue);
-}
-.dm_ds_delete{
-    background-color: var(--cam);
-}
-.sp_ds_loai table {
-    width: 80%;
-    margin: 20px auto;
-}
 
 /* ===========================Sản phẩm - ADD============================= */
 .sanpham_add{
@@ -449,10 +442,12 @@ button{
 
 /* ===========================Sản phẩm - danh sách============================= */
 .sp_ds_sp{
-    margin: 100px;
+    margin: 0 100px;
+}
+.sp_ds_sp table{
+    width: 100%;
 }
 .sp_ds_sp table, th ,td ,tr{
-    border-collapse: collapse;
     border: 1px solid var(--blue);
     padding: 5px;
 }
@@ -500,10 +495,30 @@ button{
     .sp_text span{
     margin: 20px 0;
 }
-.sp_text p {
-    
-}
+
 /* ==========================login========================== */
 .home_sp_main .login{
     width: 30rem;
 }
+/* ===================điều hường user ======================= */
+.directional{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
+    width: 55rem;
+    margin: auto;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 4px 4px 10px #4e4e4d;
+}
+.directional img{
+    width: 150px;
+    height: 150px;
+}
+.directional .list-btn{
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+

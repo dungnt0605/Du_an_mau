@@ -27,9 +27,21 @@ function khach_hang_select_all(){
     $sql = "SELECT * FROM khach_hang";
     return pdo_query($sql);
 }
+function khach_hang_search($kyw="")  {
+    $sql = "SELECT * FROM khach_hang  WHERE 1 " ;
+    if($kyw != ""){
+        $sql .= " and name LIKE '%" . $kyw . "%'";
+    }
+    $sql .= " ORDER BY ma_kh DESC";
+    return pdo_query($sql);
+}
 
 function khach_hang_check_by_id($user , $pass){
     $sql = "SELECT * FROM khach_hang WHERE name='" . $user . "' AND pass='" . $pass . "' ";
+    return pdo_query_one($sql);
+} 
+function khach_hang_check_by_email($email){
+    $sql = "SELECT * FROM khach_hang WHERE email='" . $email ."'";
     return pdo_query_one($sql);
 } 
 function khach_hang_select_by_id($ma_kh){

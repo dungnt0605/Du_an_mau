@@ -33,7 +33,15 @@
             
 
             case 'dsloai'://Danh sách loại
-                loai_select_all();
+                if(isset($_POST['search'])){
+                    $kyw = $_POST['kyw'];
+                  
+                }else{
+                    $kyw = '';
+                  
+                }
+                
+                $value_loai = loai_search($kyw) ;
                 include "danhmuc/ds-loai.php";
                 break;
             
@@ -167,7 +175,74 @@
                 hang_hoa_search("",0);
                 include "sanpham/danhsach.php";
                 break;
+            case 'dsKH':
+                if(isset($_POST['search'])){
+                    $kyw = $_POST['kyw'];
+                }else{
+                    $kyw = '';
+                }
+                $value_kh = khach_hang_search($kyw)  ;
+                include "tai_khoan/list.php";
+                break; 
             
+            case 'deleteKH' :
+                if(isset($_GET['id'])){
+                    $id = $_GET['id'];
+                    khach_hang_delete($id);
+                }
+                if(isset($_POST['deleteid']) && isset( $_POST['deleteAll'])){
+                    foreach($_POST['deleteid'] as $dl){
+                        khach_hang_delete($id);
+                    }
+                }
+                if(isset($_POST['search'])){
+                    $kyw = $_POST['kyw'];
+                }else{
+                    $kyw = '';
+                }
+                khach_hang_search("");
+                include "tai_khoan/list.php";
+                break;
+            case 'editKH' :
+                $hang_hoa = hang_hoa_select_all();
+                if(isset($_GET['id'])){
+                    $id = $_GET['id'];
+                    $sp_one = hang_hoa_select_by_id($id );
+                }
+                include "tai_khoan/update.php";
+                break;
+            case 'updateKH' :
+                if(isset($_POST['themmoi'])){
+                    $ten_hh = $_POST['ten_hh'];
+                    $ma_hh = $_POST['ma_hh'];
+                    $price = $_POST['price'];
+                    $sale = $_POST['sale'];
+                    $ngaynhap = $_POST['ngaynhap'];
+                    $mota = $_POST['mota'];
+                    $view = $_POST['view'];
+                    $dac_biet = $_POST['dacbiet'];
+                    $ma_loai = $_POST['ma_loai'];
+                    $imageS = $_POST['imageS'];
+                    $hinh_sp = $_FILES['imageS'];
+                    if($hinh_sp['size'] > 0){
+                        $imageS= $hinh_sp['name'];
+                    }
+                    $target_fileSP = "../imageT2/" . $imageS;
+                    move_uploaded_file($hinh_sp['tmp_name'],$target_fileSP);
+
+                    hang_hoa_update($ma_hh, $ten_hh, $price, $sale, $imageS, $ma_loai, $dac_biet, $view, $ngaynhap, $mota);
+                $thongbao = "Thêm thành công";
+                }
+                if(isset($_POST['search'])){
+                    $kyw = $_POST['kyw'];
+
+                }else{
+                    $kyw = '';
+
+                }
+                khach_hang_search("");
+                include "tai_khoan/list.php";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+                break;
             default:
                 include "home.php";
                 break;

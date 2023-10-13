@@ -91,10 +91,6 @@
             </main>
 
             <aside class="home_ad_">
-
-                <!-- LOGIN -->
-                <?php require "layout/login.php"; ?>
-                <!-- DANH MỤC -->
                 <?php 
                     
                     require "layout/danh_muc.php"; ?>
