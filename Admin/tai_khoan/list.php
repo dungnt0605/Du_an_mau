@@ -7,7 +7,7 @@
             <button class=" fw-bold" type="submit" name="search">GO</button>
         </form>
         <div class="flex between">
-            <a href="index.php?act=addSP"><button class="text-white fw-bold">Thêm loại hàng</button></a>
+            <a href="#"><button class="text-white fw-bold">Thêm loại hàng</button></a>
             <div class="sp_ds_list_btn flex">
                 <a onclick="confirm('Bạn có muốn Xóa những mục mình vừa chọn k ?')" href="#"><button class="btn btn-dark my-3 mx-3">Chọn tất cả</button></a>
                 <button type="submit" name="deleteAll">Xóa các danh mục đã chọn</button>
@@ -15,28 +15,31 @@
             </div>
         </div>
     </div>
-    <form action="index.php?act=dsKH" method="post">
-        <table>
-
-            <tr>
-                <th></th>
-                <th>MÃ KHÁCH HÀNG</th>
-                <th>TÊN KHÁCH HÀNG</th>
-                <th>MẬT KHẨU</th>
-                <th>ẢNH ĐẠI DIỆN</th>
-                <th>VAI TRÒ</th>
-                <th>ĐỊA CHỈ</th>
-                <TH>SDT</TH>
-                <TH>THAO TAC</TH>
-
-            </tr>
-            <?php foreach ($value_kh as $key) : ?>
-                <?php
+    <table>
+        
+        <tr>
+            <th></th>
+            <th>MÃ KHÁCH HÀNG</th>
+            <th>TÊN KHÁCH HÀNG</th>
+            <th>MẬT KHẨU</th>
+            <th>ẢNH ĐẠI DIỆN</th>
+            <th>VAI TRÒ</th>
+            <th>ĐỊA CHỈ</th>
+            <TH>SDT</TH>
+            <TH>THAO TAC</TH>
+            
+        </tr>
+        <?php foreach ($value_kh as $key) : ?>
+            <?php
                 $editKH = "index.php?act=editKH&id=" . $key['ma_kh'];
                 $deleteKH = "index.php?act=deleteKH&id=" . $key['ma_kh'];
                 ?>
                 <tr>
-                    <td><input type="checkbox" name="deleteid[]" value="<?= $key['ma_kh'] ?>"></td>
+                    <td>
+                        <form action="index.php?act=dsKH" method="post">
+                            <input type="checkbox" name="deleteid[]" value="<?= $key['ma_kh'] ?>">
+                        </form>
+                    </td>
                     <td><?= $key['ma_kh'] ?></td>
                     <td><?= $key['name'] ?></td>
                     <td><?= $key['pass'] ?></td>
@@ -57,7 +60,7 @@
             <?php endforeach; ?>
         </table>
 
-    </form>
+
 
     <script>
         function confirmDelete(deleteUrl) {

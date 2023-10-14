@@ -57,7 +57,7 @@
             case 'editDM'://Sửa danh mục
                 if(isset($_GET['id']) && $_GET['id'] > 0){
                     $ma_loai = $_GET['id'];
-                     $updatedm = loai_select_by_id($ma_loai);
+                    $updatedm = loai_select_by_id($ma_loai);
                     
                 }
                 include "danhmuc/update_ds_loai.php";
@@ -203,36 +203,37 @@
                 khach_hang_search("");
                 include "tai_khoan/list.php";
                 break;
+
             case 'editKH' :
-                $hang_hoa = hang_hoa_select_all();
                 if(isset($_GET['id'])){
                     $id = $_GET['id'];
-                    $sp_one = hang_hoa_select_by_id($id );
+                    $kh_one = khach_hang_select_by_id($id);
                 }
                 include "tai_khoan/update.php";
                 break;
+                
             case 'updateKH' :
-                if(isset($_POST['themmoi'])){
-                    $ten_hh = $_POST['ten_hh'];
-                    $ma_hh = $_POST['ma_hh'];
-                    $price = $_POST['price'];
-                    $sale = $_POST['sale'];
-                    $ngaynhap = $_POST['ngaynhap'];
-                    $mota = $_POST['mota'];
-                    $view = $_POST['view'];
-                    $dac_biet = $_POST['dacbiet'];
-                    $ma_loai = $_POST['ma_loai'];
-                    $imageS = $_POST['imageS'];
-                    $hinh_sp = $_FILES['imageS'];
-                    if($hinh_sp['size'] > 0){
-                        $imageS= $hinh_sp['name'];
+                if (isset($_POST['update'])) {
+                    $name = $_POST['name'];
+                    $pass = $_POST['pass'];
+                    $sdt = $_POST['sdt'];
+                    $email = $_POST['email'];
+                    $adress = $_POST['adress'];
+                    $vai_tro = $_POST['vai_tro'];
+                    $ma_kh = $_POST['ma_kh'];
+                    $avatar = $_POST['avatar'];
+    
+                    $image = $_FILES['avatar'];
+                    if($image['size'] > 0){
+                        $avatar = $image['name'];
                     }
-                    $target_fileSP = "../imageT2/" . $imageS;
-                    move_uploaded_file($hinh_sp['tmp_name'],$target_fileSP);
-
-                    hang_hoa_update($ma_hh, $ten_hh, $price, $sale, $imageS, $ma_loai, $dac_biet, $view, $ngaynhap, $mota);
-                $thongbao = "Thêm thành công";
+                    $target_file = 'imageT2/' . $avatar;
+                    move_uploaded_file($image['tmp_name'], $target_file);
+                    khach_hang_update($pass, $name , $sdt,  $email ,$avatar, $adress, $vai_tro ,$ma_kh);
+                    $_SESSION['user'] = khach_hang_check_by_id($name , $pass);
+                    $thongbao = "Cập nhật thành công !";
                 }
+                
                 if(isset($_POST['search'])){
                     $kyw = $_POST['kyw'];
 
@@ -240,7 +241,7 @@
                     $kyw = '';
 
                 }
-                khach_hang_search("");
+                $value_kh = khach_hang_search($kyW);
                 include "tai_khoan/list.php";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
                 break;
             default:

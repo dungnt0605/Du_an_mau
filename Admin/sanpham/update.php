@@ -4,7 +4,7 @@ if(is_array($sp_one)){
 }
 
 ?>
-<div class="row m-auto card w-50 my-5 px-4 py-4 bg-success bg-gradient bg-opacity-10 ">
+<div class="">
     <div class="row frmtitle my-3">
         <h1 class="text-center">THÊM SẢN PHẨM</h1>
     </div>
@@ -13,35 +13,35 @@ if(is_array($sp_one)){
             <form action="index.php?act=updateSP" method="post"  enctype="multipart/form-data">
                 
                 <label for="" class="mt-3">Tên sản phẩm :</label><br>
-                <input type="text" name="ten_hh" class="w-100" value="<?=$ten_hh ?>"><br>
+                <input type="text" name="ten_hh"  value="<?=$ten_hh ?>"><br>
                 
                 <label for="" class="mt-3">Đơn Giá :</label><br>
-                <input type="text" name="price"  class="w-100" value="<?=$don_gia ?>"><br>
+                <input type="text" name="price"   value="<?=$don_gia ?>"><br>
 
                 <label for="" class="mt-3">Giảm giá :</label><br>
-                <input type="text" name="sale"  class="w-100" value="<?=$giam_gia ?>"><br>
+                <input type="text" name="sale"   value="<?=$giam_gia ?>"><br>
 
                 <label for="" class="mt-3">Ảnh sản phẩm :</label><br>
                 <input type="hidden" name="imageS" value="<?= $image ?>">
-                <input type="file" name="imageS" accept="imageT2/" class="w-100" value="<?=$image ?>"><br>
+                <input type="file" name="imageS" accept="imageT2/"  value="<?=$image ?>"><br>
 
                 <label for="" class="mt-3">Ngày nhập :</label><br>
-                <input type="date" name="ngaynhap"  class="w-100" value="<?=$ngay_nhap ?>"><br>
+                <input type="date" name="ngaynhap"   value="<?=$ngay_nhap ?>"><br>
 
                 <label for="" class="mt-3">Mô tả :</label><br>
                 <textarea class="form-control" name="mota"  rows="3"><?=$mo_ta ?></textarea>
              
                 <label for="" class="mt-3">số lượt xem :</label><br>
-                <input type="text" name="view"  class="w-100" value="<?=$so_luot_xem ?>"><br>
+                <input type="text" name="view"   value="<?=$so_luot_xem ?>"><br>
 
                 <label for="" class="mt-3">Đặc biệt :</label><br>
-                <select name="dacbiet" id="" class="w-100" >
+                <select name="dacbiet" id=""  >
                     <option value="1" <?= ($dac_biet == 1) ? "selected" : '' ?>>Có</option>
                     <option value="0" <?= ($dac_biet == 0) ? "selected" : '' ?>>Không</option>
                 </select><br>
 
                 <label for="" class="mt-3" >Loại hàng hóa :</label><br>
-                <select name="ma_loai"  class="w-100" >
+                <select name="ma_loai"   >
                     <?php foreach (Loai_select_all() as $row) : ?>
                         <option value="<?=$row['ma_loai'] ?>" <?= ($ma_loai == $row['ma_loai']) ? "selected" : '' ?>><?=$row['ten_loai'] ?></option>
                     <?php endforeach; ?>

@@ -195,9 +195,11 @@ button{
 }
 /* ============================ Home - Danh sach sản phẩm ================== */
 .sp_new_10 h2{
-    margin: 0px 0 20px 0;
+    margin: 0 0 20px 0;
 }
-
+.sp_new_10 .name {
+    margin-top: 30px;
+}
 .admin_list_sp{
     display: grid ;
     grid-template-columns: 1fr 1fr 1fr;
@@ -522,3 +524,49 @@ button{
     margin: 20px 0;
 }
 
+/* ===================Footer ==================== */
+footer {
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr 1fr;
+    padding: 50px 5%;
+    background-color: var(--be);
+}
+
+.contact p {
+    width: 80%;
+    margin: 10px 0;
+
+}
+.contact #logo{
+    width: 15rem;
+}
+.contact .logo{
+    background-color: #fff;
+    max-width: max-content;
+    padding: 10px;
+    border-radius: 10px;
+}
+.contact .fa-facebook-f {
+    padding: 10px 13px;
+}
+
+.contact .fa-youtube {
+    padding: 10px 9px;
+}
+
+.contact-logo i {
+    width: 37px;
+    border: 1px solid var(--blue);
+    padding: 10px;
+    border-radius: 50%;
+    margin: 0 2%;
+}
+
+.service {
+    width: 35%;
+}
+
+.service-item {
+    margin-left: 10%;
+    line-height: 2.8;
+}

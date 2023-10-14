@@ -36,7 +36,7 @@ extract($ten_title);
             </div>
             <div class="extend_sp">
                 <div class="sp_new_10">
-                    <h2 class="text-center mt-5"><?= $ten_loai ?></h2>
+                    <h2 class=" name text-center "><?= $ten_loai ?></h2>
                     <div class="admin_list_sp ">
 
                         <?php foreach ($sp_theo_dm as $value) : ?>
@@ -67,6 +67,17 @@ extract($ten_title);
                         <?php endforeach; ?>
                     </div>
                 </div>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+                </script>
+                    <script>
+                    $(document).ready(function(){
+                    
+                        $("#binhluan").load("view/binh_loan/binh_luan_form.php", {ipro: <?= $ma_hh?>});
+                    });
+                    </script>
+            <div id="binhluan" class="row">
+
             </div>
         </main>
 
