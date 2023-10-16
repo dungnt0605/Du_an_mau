@@ -43,6 +43,19 @@ function hang_hoa_select_all(){
     return pdo_query($sql);
 }
 
+function hang_hoa_select_cart_id($ma_hh){
+    $sql = "SELECT * FROM hang_hoa h INNER JOIN loai l ON h.ma_loai = l.ma_loai  WHERE ma_hh=?";
+    if(is_array($ma_hh)){
+        foreach ($ma_hh as $ma) {
+            return pdo_query_one($sql, $ma);
+        }
+    }
+    else{
+        return pdo_query_one($sql, $ma_hh);
+    }
+    return pdo_query_one($sql, $ma_hh);
+}
+
 function hang_hoa_select_by_id($ma_hh){
     $sql = "SELECT * FROM hang_hoa h INNER JOIN loai l ON h.ma_loai = l.ma_loai  WHERE ma_hh=?";
     return pdo_query_one($sql, $ma_hh);

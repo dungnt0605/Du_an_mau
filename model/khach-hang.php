@@ -27,6 +27,7 @@ function khach_hang_select_all(){
     $sql = "SELECT * FROM khach_hang";
     return pdo_query($sql);
 }
+
 function khach_hang_search($kyw="")  {
     $sql = "SELECT * FROM khach_hang  WHERE 1 " ;
     if($kyw != ""){

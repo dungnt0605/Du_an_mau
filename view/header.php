@@ -26,6 +26,8 @@
                 <li><a class="fw-bold" href="index.php?act=gioi_thieu">GIỚI THIỆU</a></li>
                 <li><a class="fw-bold" href="index.php?act=lien_he">LIÊN HỆ</a></li>
                 <li><a class="fw-bold" href="index.php?act=hoi_dap">HỎI ĐÁP</a></li>
+                
+                <li><a href="index.php?act=cart"><button class="ad_liss_sp_btn_cart"><i class="fa-solid fa-cart-arrow-down"></i></button></a></li>
             </ul>
             <?php
                 require "layout/login.php";

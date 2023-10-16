@@ -1,14 +1,15 @@
 <?php
 require_once 'pdo.php';
 
-function binh_luan_insert($ma_kh, $ma_hh, $noi_dung, $ngay_bl){
-    $sql = "INSERT INTO binh_luan(ma_kh, ma_hh, noi_dung, ngay_bl) VALUES (?,?,?,?)";
-    pdo_execute($sql, $ma_kh, $ma_hh, $noi_dung, $ngay_bl);
+function binh_luan_insert($ma_kh, $ma_hh, $noi_dung ,$ngay_bl){
+    $sql = "INSERT INTO binh_luan (ma_bl,ma_kh, ma_hh, noi_dung ,ngay_bl) VALUES (NULL,'$ma_kh','$ma_hh','$noi_dung',$ngay_bl)";
+
+    pdo_execute($sql);
 }
 
-function binh_luan_update($ma_bl, $ma_kh, $ma_hh, $noi_dung, $ngay_bl){
-    $sql = "UPDATE binh_luan SET ma_kh=?,ma_hh=?,noi_dung=?,ngay_bl=? WHERE ma_bl=?";
-    pdo_execute($sql, $ma_kh, $ma_hh, $noi_dung, $ngay_bl, $ma_bl);
+function binh_luan_update($ma_bl, $ma_kh, $ma_hh, $noi_dung){
+    $sql = "UPDATE binh_luan SET ma_kh=?,ma_hh=?,noi_dung=?,ngay_bl=current_timestamp()	 WHERE ma_bl=?";
+    pdo_execute($sql, $ma_kh, $ma_hh, $noi_dung, $ma_bl);
 }
 
 function binh_luan_delete($ma_bl){
@@ -25,6 +26,15 @@ function binh_luan_delete($ma_bl){
 
 function binh_luan_select_all(){
     $sql = "SELECT * FROM binh_luan bl ORDER BY ngay_bl DESC";
+    return pdo_query($sql);
+}
+
+function binh_luan_search($kyw="")  {
+    $sql = "SELECT * FROM binh_luan  WHERE 1 " ;
+    if($kyw != ""){
+        $sql .= " and ma_bl LIKE '%" . $kyw . "%'" . "' or ma_hh LIKE '%" . $kyw . "%'";
+    }
+    $sql .= " ORDER BY ma_bl DESC";
     return pdo_query($sql);
 }
 

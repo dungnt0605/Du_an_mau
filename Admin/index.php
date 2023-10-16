@@ -244,6 +244,16 @@
                 $value_kh = khach_hang_search($kyW);
                 include "tai_khoan/list.php";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
                 break;
+
+            case 'dsBL' :
+                if(isset($_POST['search'])){
+                    $kyw = $_POST['kyw'];
+                }else{
+                    $kyw = '';
+                }
+                $value_bl = binh_luan_search($kyw )  ;
+                include "binh_luan/list.php";
+                break;
             default:
                 include "home.php";
                 break;

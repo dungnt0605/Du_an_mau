@@ -37,6 +37,14 @@ html{
     padding: 10px 15px !important;
 
 }
+.befor::before{
+    content: "---";
+    color: #c66b3d !important;
+}
+.after::after{
+    content: "---";
+    color: #c66b3d !important;
+}
 .flex{
     display: flex;
     align-items: center;
@@ -65,6 +73,9 @@ a{
 button{
     transform: scale(0.95);
     cursor: pointer;
+}
+.my-5{
+    margin: 20px 0;
 }
 /* ============ADMIN================ */
 /* header */
@@ -473,7 +484,38 @@ button{
 .sp_ds_list_btn button{
     background-color: var(--cam);
 }
+/* ===========================Giỏ hàn - danh sách============================= */
 
+.cart_ds{
+    margin: 0 !important;
+}
+.cart_ds table{
+    width: 100%;
+}
+.cart_ds table, th ,td ,tr{
+    border: 1px solid var(--blue);
+    padding: 5px;
+}
+.cart_ds th{
+    background-color: #c4a35a;
+}
+.cart_ds table:hover tr:hover{
+    background-color: var(--xam);
+}
+.cart_ds input , select , button{
+    padding: 8px 10px;
+    margin: 10px 0;
+}
+.cart_ds  button{
+    background-color: var(--blue);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+.cart_ds .sp_ds_delete , 
+.sp_ds_list_btn button{
+    background-color: var(--cam);
+}
 /* =================Sản phẩm chi tiết ============================ */
 .sp_ct{
     display: grid;
@@ -523,7 +565,12 @@ button{
     border-top: 1px solid #ccc;
     margin: 20px 0;
 }
+/* =============Binh Luận ====================== */
+.comment{
+    margin: 5rem;
+    
 
+}
 /* ===================Footer ==================== */
 footer {
     display: grid;
@@ -569,4 +616,24 @@ footer {
 .service-item {
     margin-left: 10%;
     line-height: 2.8;
+}
+
+/* ===============bill=================== */
+.bill-infor{
+    border: 1px solid var(--blue);
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.bill-infor input{
+    width: 50%;
+    padding: 5px 0;
+}
+.bill-infor #pay{
+    width: 5%;
+    margin-bottom: 10px;
+}
+.label-pay{
+   margin-top: 50px;
+
 }

@@ -29,12 +29,19 @@ extract($ten_title);
                                         </div>
                                         <div class="ad_list_btn flex between">
                                             <a href="#"><button class="ad_liss_sp_btn">Mua ngay</button></a>
-                                            <a href="#"><button class="ad_liss_sp_btn_cart"><i class="fa-solid fa-cart-arrow-down"></i></button></a>
+                                            <!-- <a href="#"><button class="ad_liss_sp_btn_cart"><i class="fa-solid fa-cart-arrow-down"></i></button></a> -->
+                                            <form action="index.php?act=cart" method="POST">
+                                                <input type="hidden" name="ma_hh" value="<?= $value['ma_hh']?>">
+                                                <input type="hidden" name="ten_hh" value="<?= $value['ten_hh']?>">
+                                                <input type="hidden" name="image"  value="<?= $value['image']?>">
+                                                <input type="hidden" name="don_gia" value="<?= $value['don_gia']?>">
+                                                <input type="hidden" name="giam_gia" value="<?= $value['giam_gia']?>">
+                                                <button class="ad_liss_sp_btn_cart" type="submit" name="add"><i class="fa-solid fa-cart-arrow-down"></i></button>
+                                            </form>
                                         </div>
                                     </div>
                                 </a>
                             </div>
-
                         <?php endforeach; ?>
                     </div>
                 </div>

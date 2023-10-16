@@ -21,7 +21,7 @@
         </div>
         <nav class="nav__pc">
             <ul class="nav_list flex">
-                <li><a class="fw-bold" href="index.php">TRANG CHỦ</a></li>
+                <li><a class="fw-bold" href="../index.php">TRANG CHỦ</a></li>
                 <li><a class="fw-bold" href="index.php?act=addDM">DANH MỤC</a></li>
                 <li><a class="fw-bold" href="index.php?act=addSP">SẢN PHẨM</a></li>
                 <li><a class="fw-bold" href="index.php?act=dsKH">KHÁCH HÀNG</a></li>
