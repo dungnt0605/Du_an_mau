@@ -2,14 +2,14 @@
 require_once 'pdo.php';
 
 function thong_ke_hang_hoa(){
-    $sql = "SELECT lo.ma_loai, lo.ten_loai,"
-            . " COUNT(*) so_luong,"
-            . " MIN(hh.don_gia) gia_min,"
-            . " MAX(hh.don_gia) gia_max,"
-            . " AVG(hh.don_gia) gia_avg"
+    $sql = "SELECT lo.ma_loai, lo.ten_loai,lo.image_loai ,"
+            . " COUNT(hh.ma_hh)  so_luong,"
+            . " MIN(hh.don_gia)  gia_min,"
+            . " MAX(hh.don_gia)  gia_max,"
+            . " AVG(hh.don_gia)  gia_avg"
             . " FROM hang_hoa hh "
             . " JOIN loai lo ON lo.ma_loai=hh.ma_loai "
-            . " GROUP BY lo.ma_loai, lo.ten_loai";
+            . " GROUP BY lo.ma_loai, lo.ten_loai order by so_luong desc";
     return pdo_query($sql);
 }
 

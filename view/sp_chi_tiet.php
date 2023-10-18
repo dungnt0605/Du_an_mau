@@ -96,18 +96,12 @@ extract($ten_title);
 
         </aside>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
-    </script>
-    <script>
-        $(document).ready(function() {
-
-            $("#binhluan").load("view/binh_loan/binh_luan_form.php", {
-                idpro: <?= $ma_hh ?>
-            });
-        });
-    </script>
 
     <div id="binhluan" class="row">
-
+        <?php 
+            require "binh_luan/binh_luan_form.php"; 
+            
+        ?>
+        
     </div>
 </main>

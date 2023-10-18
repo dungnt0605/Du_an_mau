@@ -2,7 +2,7 @@
 require_once 'pdo.php';
 
 function binh_luan_insert($ma_kh, $ma_hh, $noi_dung ,$ngay_bl){
-    $sql = "INSERT INTO binh_luan (ma_bl,ma_kh, ma_hh, noi_dung ,ngay_bl) VALUES (NULL,'$ma_kh','$ma_hh','$noi_dung',$ngay_bl)";
+    $sql = "INSERT INTO binh_luan (ma_kh, ma_hh, noi_dung ,ngay_bl) VALUES ('$ma_kh','$ma_hh','$noi_dung',$ngay_bl)";
 
     pdo_execute($sql);
 }

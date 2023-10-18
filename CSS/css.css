@@ -624,7 +624,10 @@ footer {
     padding: 50px;
     border-radius: 10px;
 }
+.bill-infor .ds_bill{
+    margin-top: 40px;
 
+}
 .bill-infor input{
     width: 50%;
     padding: 5px 0;
@@ -635,5 +638,15 @@ footer {
 }
 .label-pay{
    margin-top: 50px;
+
+}
+/* ===========================binh_luân ========================== */
+.box_bl .content_bl{
+    box-shadow: 1px 1px 10px  #7e7e7e;
+    border-radius: 0 10px 0 10px;
+    background-color: var(--xam);
+    max-width: max-content;
+    padding: 10px;
+    margin: 10px 0;
 
 }

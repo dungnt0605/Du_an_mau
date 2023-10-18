@@ -44,7 +44,7 @@
 
                 </form>
             </div>
-            <table>
+            <table class="ds_bill my-5">
                 <tr>
                     <th></th>
                     <th>MÃ SẢN PHẨM</th>
@@ -100,7 +100,10 @@
                     <td colspan='2'><?= $tong ?> Triệu</td>
                 </tr>
             </table>
-            <a href="index.php?act=bill"><button class="cam-btn">Đồng ý đặt hàng </button></a>
+            <div class="flex">
+                <a href="index.php?act=bill"><button class="cam-btn">Đặt hàng </button></a>
+                <a href="index.php?act=cart"><button class="cam-btn">Giỏ hàng hàng </button></a>
+            </div>
 
 
         </main>

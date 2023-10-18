@@ -254,6 +254,16 @@
                 $value_bl = binh_luan_search($kyw )  ;
                 include "binh_luan/list.php";
                 break;
+
+            case 'thongke' :
+                $list_thong_ke = thong_ke_hang_hoa();
+                include "thong_ke/list.php";
+                break;
+            
+            case 'bieu_do' :
+                $list_thong_ke = thong_ke_hang_hoa();
+                include "thong_ke/bieu_do.php";
+                break ;
             default:
                 include "home.php";
                 break;
