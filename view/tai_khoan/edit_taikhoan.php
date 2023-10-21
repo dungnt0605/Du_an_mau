@@ -6,7 +6,7 @@ if (isset($_SESSION['user']) && is_array(isset($_SESSION['user']))) {
 }
 ?>
 <main class="home-container">
-    <div class="home__admin">
+    
         <main class="home_sp_main">
 
             <form action="index.php?act=edit_taikhoan" method="post" class="sanpham_add" enctype="multipart/form-data">
@@ -56,5 +56,5 @@ if (isset($_SESSION['user']) && is_array(isset($_SESSION['user']))) {
         </main>
 
        
-    </div>
+   
 </main>

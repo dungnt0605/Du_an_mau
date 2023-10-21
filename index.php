@@ -74,7 +74,7 @@ if (isset($_GET['act']) && $_GET['act']) {
                     header('location: index.php');
                 } else {
                     $thongbao = "Tài khoản không tồn tại vui lòng kiểm tra hoặc đăng ký !";
-                    include "view/tai_khoan/sign_up.php";
+                    include "view/tai_khoan/sign_in.php";
                 }
             }
             break;
@@ -132,25 +132,28 @@ if (isset($_GET['act']) && $_GET['act']) {
             include "view/tai_khoan/quen_mat_khau.php";
             break;
         
-        case 'binh_luan' :
-            if(isset($_POST['gui_bl'])) {
-                if(isset($_SESSION['user'])){
-                    $noi_dung = $_POST['content'];
-                    $ma_kh = $_SESSION['user']['ma_kh'];
-                    $ma_hh = $_POST['ma_hh'];
-                    // timezone_location_get('Asia/')
-                    $ngay_bl = date('h:i:sa d/m/Y ');
-                    // $ten_kh = $_SESSION['user']['name'];
-                    binh_luan_insert($ma_kh, $ma_hh, $noi_dung ,$ngay_bl);
+        // case 'binh_luan' :
+        //     if(isset($_POST['gui_bl'])) {
+        //         if(isset($_SESSION['user'])){
+        //             $noi_dung = $_POST['content'];
+        //             $ma_kh = $_SESSION['user']['ma_kh'];
+        //             $name = $_SESSION['user']['name'];
+        //             $ma_hh = $_POST['ma_hh'];
+        //             // timezone_location_get('Asia/')
+        //             $ngay_bl = date('h:i:sa d/m/Y ');
+        //             $ten_kh = $_SESSION['user']['name'];
+        //             binh_luan_insert($ma_kh, $ma_hh, $noi_dung ,$ngay_bl);
 
-                }else{
-                    $thongbao = 'Bạn chưa đăng nhập , vui lòng đăng nhập !';
-                    echo $thongbao;
-                }
-                // header("location: " . $_SERVER['HTTP_REFERER']);
-            }
-            include "view/binh_luan/binh_luan_form.php";
-            break;
+        //         }else{
+        //             $thongbao = 'Bạn chưa đăng nhập , vui lòng đăng nhập !';
+        //             echo $thongbao;
+        //         }
+        //         // header("location: " . $_SERVER['HTTP_REFERER']);
+        //     }
+        //     include "view/binh_luan/binh_luan_form.php";
+        //     break;
+            case 'binh_luan_insert':
+                break;
         case 'cart':
             if (isset($_POST['add']) ) {
                 $ma_hh = $_POST['ma_hh'];

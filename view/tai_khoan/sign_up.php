@@ -39,12 +39,7 @@
                     <input type="reset" value="NHẬP LẠI" class="fw-bold reset">
                 </div>
 
-                <?php
-
-                if (isset($thongbao) && $thongbao != "") {
-                    echo $thongbao;
-                }
-                ?>
+                
             </form>
         </main>
 

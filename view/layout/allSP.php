@@ -1,5 +1,5 @@
 <div class="sp_new_10">
-    <h2 class="text-center">TOP 10 SẢN PHẨM MỚI NHẤT</h2>
+    <h2 class="text-center my-5">TOP 10 SẢN PHẨM MỚI NHẤT</h2>
     <div class="admin_list_sp ">
 
         <?php foreach ($new_sp_10 as $value) : ?>

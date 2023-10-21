@@ -5,7 +5,7 @@
     list-style: none;
     text-decoration: none;
     transition: 0.8s ;
-    font-family: 'tahoma', arial, helvetica;
+    font-family: 'Roboto Condensed', sans-serif;
     color: #26495c;
     font-family: 'Gabarito', cursive;
 
@@ -569,7 +569,15 @@ button{
 .comment{
     margin: 5rem;
     
+.box_bl .content_bl{
+    box-shadow: 1px 1px 10px  #7e7e7e;
+    border-radius: 0 10px 0 10px;
+    background-color: var(--xam);
+    max-width: max-content;
+    padding: 10px;
+    margin: 10px 0;
 
+}
 }
 /* ===================Footer ==================== */
 footer {
@@ -640,13 +648,11 @@ footer {
    margin-top: 50px;
 
 }
-/* ===========================binh_luân ========================== */
-.box_bl .content_bl{
-    box-shadow: 1px 1px 10px  #7e7e7e;
-    border-radius: 0 10px 0 10px;
-    background-color: var(--xam);
+/* ===========================sign in ========================== */
+.home_sign_in{
+    box-shadow: 1px 1px 10px #5c5b5b;
     max-width: max-content;
-    padding: 10px;
-    margin: 10px 0;
-
+    padding: 30px;
+    border-radius: 10px;
+    margin: 50px auto ;
 }

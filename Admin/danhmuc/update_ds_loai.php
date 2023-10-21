@@ -5,10 +5,10 @@
     }
 ?>
 
-<div class="row m-auto card w-50 my-5 px-4 py-4 bg-success bg-gradient bg-opacity-10 ">
-    <div class="row frmtitle my-3">
-        <h1>Cập nhật hàng hóa</h1>
-    </div>
+<div class="Danhmuc_add ">
+    
+        <h1 class="text-center my-5">Cập nhật hàng hóa</h1>
+   
     <div class="row frmtitle  ">
         
             <form action="index.php?act=updateDM" method="post"  enctype="multipart/form-data">

@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/css.css">
     <link rel="stylesheet" href="../CSS/responsive.css">
     <title>Admin</title>
 </head>
 
 <body>
-<header class="flex between">
+    <header class="flex between">
         <div class="logo flex">
             <img src="../imageT2/logo/51456b4063722b731891adeb090b6d5b-removebg-preview 1.png" alt="logo">
             (ADMIN)

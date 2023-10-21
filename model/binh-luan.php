@@ -2,13 +2,12 @@
 require_once 'pdo.php';
 
 function binh_luan_insert($ma_kh, $ma_hh, $noi_dung ,$ngay_bl){
-    $sql = "INSERT INTO binh_luan (ma_kh, ma_hh, noi_dung ,ngay_bl) VALUES ('$ma_kh','$ma_hh','$noi_dung',$ngay_bl)";
-
+    $sql = "INSERT INTO `binh_luan`( `noi_dung`, `ma_hh`, `ma_kh`, `ngay_bl`) VALUES ('$noi_dung','$ma_hh','$ma_kh','$ngay_bl')";
     pdo_execute($sql);
 }
 
 function binh_luan_update($ma_bl, $ma_kh, $ma_hh, $noi_dung){
-    $sql = "UPDATE binh_luan SET ma_kh=?,ma_hh=?,noi_dung=?,ngay_bl=current_timestamp()	 WHERE ma_bl=?";
+    $sql = "UPDATE binh_luan SET ma_kh=?,ma_hh=?,noi_dung=?,ngay_bl=? WHERE ma_bl=?";
     pdo_execute($sql, $ma_kh, $ma_hh, $noi_dung, $ma_bl);
 }
 
