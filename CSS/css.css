@@ -159,51 +159,37 @@ button{
     margin: 2rem 5rem;
     gap: 40px ;
 }
-.home_side{
+.banner {
     position: relative;
-
-}
-.home_list_box{
-    position: absolute;
-    left: 20rem;
-    bottom: 10%;
-}
-.home_item_box{
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: #4e4e4d;
-    margin: 0 15px;
-    overflow: hidden;
-}
-.home_item_box img{
-    object-fit: cover;
-    width: 15px;
-    height: 15px;
-}
-.home_list_box .active{
-    background-color: chocolate;
-}
-.home_side img{
-    object-fit: cover;
-    width: 53rem;
-    height: 35rem;
+    height: 75vh; 
+    background-image: url(https://images.pexels.com/photos/384555/pexels-photo-384555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-size: cover;
+    margin-bottom: 30px;
 }
 .control{
     position: absolute;
     font-size: 40px;
     top:45%;
     color: #4e4e4d;
+    background-color: transparent ;
+    border: none;
+    
 }
 .control:hover{
-    color: #333;
+    background-color: rgba(248, 248, 248, 0.3);
+    
 }
 .next{
-    right: 5%;
+   left: 3%;
+   
 }
 .prev{
-    left: 3%;
-}
+    
+     right: 5%;
+} 
+
+
+
 /* ============================ Home - Danh sach sản phẩm ================== */
 .sp_new_10 h2{
     margin: 0 0 20px 0;
@@ -405,7 +391,7 @@ button{
 }
 .Danhmuc_add .reset,
 .Danhmuc_add button{
-    width: 50%;
+    width: 45%;
     margin: 20px 0;
     padding: 8px 0;
     background-color: #26495c;
@@ -455,10 +441,11 @@ button{
 
 /* ===========================Sản phẩm - danh sách============================= */
 .sp_ds_sp{
-    margin: 0 100px;
+    margin: 0 100px 100px 100px;
 }
 .sp_ds_sp table{
     width: 100%;
+    margin-bottom: 100px;
 }
 .sp_ds_sp table, th ,td ,tr{
     border: 1px solid var(--blue);
@@ -568,7 +555,7 @@ button{
 /* =============Binh Luận ====================== */
 .comment{
     margin: 5rem;
-    
+}    
 .box_bl .content_bl{
     box-shadow: 1px 1px 10px  #7e7e7e;
     border-radius: 0 10px 0 10px;
@@ -578,6 +565,9 @@ button{
     margin: 10px 0;
 
 }
+.bl_search input{
+    padding: 8px;
+
 }
 /* ===================Footer ==================== */
 footer {

@@ -7,18 +7,18 @@
             <button class=" fw-bold" type="submit" name="search">GO</button>
         </form>
         <div class="flex between">
-            <a href="#"><button class="text-white fw-bold">Thêm loại hàng</button></a>
+            <!-- <a href="index.php?act=login"><button class="text-white fw-bold">Thêm khách hàng</button></a> -->
             <div class="sp_ds_list_btn flex">
-                <a onclick="confirm('Bạn có muốn Xóa những mục mình vừa chọn k ?')" href="#"><button class="btn btn-dark my-3 mx-3">Chọn tất cả</button></a>
-                <button type="submit" name="deleteAll">Xóa các danh mục đã chọn</button>
-                <a href="#"><button type="submit">Bỏ chọn tất cả</button></a>
+                <form action="index.php?act=deleteKH" method="POST">
+                    <button onclick="confirm('Bạn có muốn xóa tất cả k ?')" name="deleteall" type="submit">Xóa tất cả</button>
+                </form>
             </div>
         </div>
     </div>
     <table>
-        
+
         <tr>
-            <th></th>
+           
             <th>MÃ KHÁCH HÀNG</th>
             <th>TÊN KHÁCH HÀNG</th>
             <th>MẬT KHẨU</th>
@@ -27,38 +27,34 @@
             <th>ĐỊA CHỈ</th>
             <TH>SDT</TH>
             <TH>THAO TAC</TH>
-            
+
         </tr>
         <?php foreach ($value_kh as $key) : ?>
             <?php
-                $editKH = "index.php?act=editKH&id=" . $key['ma_kh'];
-                $deleteKH = "index.php?act=deleteKH&id=" . $key['ma_kh'];
-                ?>
-                <tr>
-                    <td>
-                        <form action="index.php?act=dsKH" method="post">
-                            <input type="checkbox" name="deleteid[]" value="<?= $key['ma_kh'] ?>">
-                        </form>
-                    </td>
-                    <td><?= $key['ma_kh'] ?></td>
-                    <td><?= $key['name'] ?></td>
-                    <td><?= $key['pass'] ?></td>
-                    <td>
-                        <img style="width: 100px;" src="../imageT2/<?= $key['avatar'] ?>" alt="">
-                    </td>
-                    <td><?= ($key['vai_tro'] == 1) ? 'Admin' : 'Khách hàng'  ?></td>
-                    <td><?= $key['dia_chi'] ?></td>
-                    <td><?= $key['sdt']   ?></td>
-                    <!-- <td>
+            $editKH = "index.php?act=editKH&id=" . $key['ma_kh'];
+            $deleteKH = "index.php?act=deleteKH&id=" . $key['ma_kh'];
+            ?>
+            <tr>
+               
+                <td><?= $key['ma_kh'] ?></td>
+                <td><?= $key['name'] ?></td>
+                <td><?= $key['pass'] ?></td>
+                <td>
+                    <img style="width: 100px;" src="../imageT2/<?= $key['avatar'] ?>" alt="">
+                </td>
+                <td><?= ($key['vai_tro'] == 1) ? 'Admin' : 'Khách hàng'  ?></td>
+                <td><?= $key['dia_chi'] ?></td>
+                <td><?= $key['sdt']   ?></td>
+                <!-- <td>
                     <img style="width: 100px;" src="../imageT2/<?= $key['image'] ?>" alt="">
                 </td> -->
-                    <td>
-                        <a onclick="confirm('Bạn có muốn SỬA không ?')" href="<?= $editKH ?>"><button class="sp_ds_edit">Sửa</button></a>
-                        <button class="sp_ds_delete" onclick="confirmDelete('<?= $deleteKH ?>')">Xóa</button>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </table>
+                <td>
+                    <a onclick="confirm('Bạn có muốn SỬA không ?')" href="<?= $editKH ?>"><button class="sp_ds_edit">Sửa</button></a>
+                    <button class="sp_ds_delete" onclick="confirmDelete('<?= $deleteKH ?>')">Xóa</button>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
 
 
 

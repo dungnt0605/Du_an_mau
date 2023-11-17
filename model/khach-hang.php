@@ -22,7 +22,12 @@ function khach_hang_delete($ma_kh){
         pdo_execute($sql, $ma_kh);
     }
 }
+function khach_hang_delete_all(){
+    $sql = "DELETE FROM khach_hang";
 
+        pdo_execute($sql);
+    
+}
 function khach_hang_select_all(){
     $sql = "SELECT * FROM khach_hang";
     return pdo_query($sql);

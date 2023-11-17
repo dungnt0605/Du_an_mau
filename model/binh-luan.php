@@ -22,7 +22,12 @@ function binh_luan_delete($ma_bl){
         pdo_execute($sql, $ma_bl);
     }
 }
+function binh_luan_delete_all(){
+    $sql = "DELETE FROM binh_luan";
 
+        pdo_execute($sql);
+    
+}
 function binh_luan_select_all(){
     $sql = "SELECT * FROM binh_luan bl ORDER BY ngay_bl DESC";
     return pdo_query($sql);

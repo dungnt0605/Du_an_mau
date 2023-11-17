@@ -21,7 +21,7 @@
 
                 <table>
                     <tr>
-                        <th></th>
+                        
                         <th>MÃ SẢN PHẨM</th>
                         <th>TÊN SẢN PHẨM</th>
                         <th>ĐƠN GIÁ</th>
@@ -37,8 +37,8 @@
                     ?>
                     <?php foreach ($_SESSION['cart'] as $key) : ?>
                         <?php
-
-                        $editcart = "index.php?act=editcart&id=" . $i;
+                        
+                        // $editcart = "index.php?act=editcart&id=" . $i;
                         $deletecart = "index.php?act=deletecart&id=" . $i;
                         $ttien = (float)$key[2] * (int)$key[5];
                         $tong += $ttien;
@@ -46,12 +46,13 @@
 
                         ?>
                         <tr>
-                            <td>
+                            <!-- <td>
                                 
                                     <label for="box">hehe</label>
                                     <input type="checkbox" name="deleteid[]" value="<?= $i ?>" id="box">
                                 
-                            </td>
+                            </td> -->
+                            
                             <td><?= $key[0] ?></td>
                             <td><?= $key[1] ?></td>
                             <td><?= $key[2] ?></td>
@@ -65,6 +66,7 @@
 
                             <td>
                                 <button class="sp_ds_delete" onclick="confirmDelete('<?= $deletecart ?>')">Xóa</button>
+                                <a href="<?= $deletecart ?>">Xóa</a>
                             </td>
                         </tr>
                         <?php $i += 1; ?>

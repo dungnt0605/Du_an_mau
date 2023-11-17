@@ -38,8 +38,7 @@ if(is_array($kh_one)){
                 <input type="hidden" name="ma_kh" value="<?= $ma_kh ?>">
                 <!-- <img src="../imageT2/fol_2.jpg" alt=""> -->
                 <a style="text-decoration: underline;" href="index.php?act=dsKH" class="my-3 ">DANH SÁCH</a> <br>
-                <div class="flex">
-
+                <div class="flex between">
                     <button type="submit" name="update" class="fw-bold">Cập nhật</button>
                     <input type="reset" value="NHẬP LẠI" class="fw-bold reset">
                 </div>

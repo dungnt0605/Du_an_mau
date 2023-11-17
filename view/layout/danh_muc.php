@@ -16,6 +16,7 @@
     
         <form action="index.php?act=ds_sp_loai" method="POST" class="ds_search">
             <div class="flex between">
+                
                 <input type="search" name="search" placeholder="Tìm kiếm ...">
                 <button class="blue-btn" type="submit" name="search-btn">Search</button>
             </div>

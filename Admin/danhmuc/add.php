@@ -11,7 +11,7 @@
                 <label class="dm_label" for="">Tên loại :</label><br>
                 <input type="text" name="tenloai" ><br>
 
-                <label class="dm_label" for="" ">Ảnh :</label><br>
+                <label class="dm_label" for="" >Ảnh :</label><br>
                 <input type="file" name="imageL" accept="imageT2/"><br>
 
                 <!-- <img src="../imageT2/fol_2.jpg" alt=""> -->

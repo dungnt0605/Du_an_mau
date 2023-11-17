@@ -31,6 +31,6 @@
     </div>
 </footer>
 </body>
-
+<script src="./CSS/main.js"></script>
 
 </html>

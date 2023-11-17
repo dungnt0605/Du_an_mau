@@ -39,6 +39,12 @@ function loai_delete($ma_loai){
     }
 }
 
+function loai_delete_all(){
+    $sql = "DELETE FROM loai";
+
+        pdo_execute($sql);
+    
+}
  //Truy vấn tất cả các loại
 
 function loai_select_all(){

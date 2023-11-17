@@ -12,7 +12,7 @@ function hang_hoa_update($ma_hh, $ten_hh, $price, $sale, $imageS, $ma_loai, $dac
 }
 
 function hang_hoa_search($kyw="",$iddm=0)  {
-    $sql = "SELECT h.* , l.ten_loai FROM hang_hoa h INNER JOIN loai l ON h.ma_loai = l.ma_loai  WHERE 1 " ;
+    $sql = "SELECT * FROM hang_hoa h INNER JOIN loai l ON h.ma_loai = l.ma_loai  WHERE 1 " ;
     if($kyw != ""){
         $sql .= " and h.ten_hh LIKE '%" . $kyw . "%'";
     }
@@ -32,6 +32,13 @@ function hang_hoa_delete($ma_hh){
     else{
         pdo_execute($sql, $ma_hh);
     }
+}
+
+function hang_hoa_delete_all(){
+    $sql = "DELETE FROM hang_hoa";
+
+        pdo_execute($sql);
+    
 }
 function hang_hoa_select_new10(){
     $sql = "SELECT * FROM hang_hoa h INNER JOIN loai l ON h.ma_loai = l.ma_loai  WHERE 1 ORDER BY ma_hh DESC LIMIT 0, 9";

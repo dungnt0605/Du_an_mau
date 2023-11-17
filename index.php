@@ -5,6 +5,7 @@ include "model/hang-hoa.php";
 include "model/khach-hang.php";
 include "model/loai.php";
 include "model/thong-ke.php";
+include "model/cart.php";
 include "view/header.php";
 $top10 = hang_hoa_select_top10();
 $value_loai = loai_select_all();
@@ -32,6 +33,9 @@ if (isset($_GET['act']) && $_GET['act']) {
         case 'ds_sp_loai':
             if (isset($_POST['search']) && isset($_POST['search-btn'])) {
                 $ten_hh = $_POST['search'];
+                $ten_title = loai_select_by_id($ma_loai);
+                $value_sp_loai = hang_hoa_search($ten_hh, 0);
+                include "view/ds_sanpham.php";
             } else {
                 $ten_hh = "";
             }
@@ -59,7 +63,7 @@ if (isset($_GET['act']) && $_GET['act']) {
                 move_uploaded_file($image['tmp_name'], $target_file);
 
                 khach_hang_insert($name, $pass, $sdt, $email, $avatar, $adress, $vai_tro);
-                $thongbao = "Đăng nhập thành công , vui lòng đăng nhập !";
+                $thongbao = "Đăng ký thành công , vui lòng đăng nhập !";
             }
             include "view/tai_khoan/sign_up.php";
         case 'dangnhap':
@@ -78,8 +82,6 @@ if (isset($_GET['act']) && $_GET['act']) {
                 }
             }
             break;
-
-
         case 'sign_in':
             include "view/tai_khoan/sign_in.php";
             break;
@@ -131,31 +133,12 @@ if (isset($_GET['act']) && $_GET['act']) {
             }
             include "view/tai_khoan/quen_mat_khau.php";
             break;
-        
-        // case 'binh_luan' :
-        //     if(isset($_POST['gui_bl'])) {
-        //         if(isset($_SESSION['user'])){
-        //             $noi_dung = $_POST['content'];
-        //             $ma_kh = $_SESSION['user']['ma_kh'];
-        //             $name = $_SESSION['user']['name'];
-        //             $ma_hh = $_POST['ma_hh'];
-        //             // timezone_location_get('Asia/')
-        //             $ngay_bl = date('h:i:sa d/m/Y ');
-        //             $ten_kh = $_SESSION['user']['name'];
-        //             binh_luan_insert($ma_kh, $ma_hh, $noi_dung ,$ngay_bl);
 
-        //         }else{
-        //             $thongbao = 'Bạn chưa đăng nhập , vui lòng đăng nhập !';
-        //             echo $thongbao;
-        //         }
-        //         // header("location: " . $_SERVER['HTTP_REFERER']);
-        //     }
-        //     include "view/binh_luan/binh_luan_form.php";
-        //     break;
-            case 'binh_luan_insert':
-                break;
+            
+        case 'binh_luan_insert':
+            break;
         case 'cart':
-            if (isset($_POST['add']) ) {
+            if (isset($_POST['add'])) {
                 $ma_hh = $_POST['ma_hh'];
                 $ten_hh = $_POST['ten_hh'];
                 $don_gia = $_POST['don_gia'];
@@ -175,34 +158,61 @@ if (isset($_GET['act']) && $_GET['act']) {
                         break;
                     }
                 }
-            
+
                 if (!$product_exists) {
                     $so_luong = 1;
                     $money = $so_luong * (float)$don_gia;
-                    $spadd = [$ma_hh, $ten_hh, $don_gia, $giam_gia, $image, $so_luong ,$money];
+                    $spadd = [$ma_hh, $ten_hh, $don_gia, $giam_gia, $image, $so_luong, $money];
                     array_push($_SESSION['cart'], $spadd); // Thêm sản phẩm mới vào giỏ hàng.
                 }
-            header('location: ' .  $_SERVER["REQUEST_URI"] );
+                header('location: ' .  $_SERVER["REQUEST_URI"]);
             }
             include "view/cart/cart.php";
             break;
 
         case 'deletecart':
-            if (isset($_GET['id']) && ( $_GET['id'] )) {
-                array_slice($_SESSION['cart'], $_GET['id'], 1);
+            if (isset($_GET['id']) && ($_GET['id']) ) {
+                
+                $_SESSION['cart'] = array_slice($_SESSION['cart'], $_GET['id'], 1);
+                
+            }
+             else {
+                $_SESSION['cart'] = [];
+            }
+            if (isset($_GET['deleteAll']) && ($_GET['deleteAll'])) {
+                $_SESSION['cart'] = [];
+            }
+            header("Location: index.php?act=viewcart");
+            break;
+        case 'viewcart':
+            include "view/cart/cart.php";
+            break;
+        case 'deletebill':
+            if (isset($_GET['id']) && ($_GET['id'])) {
+                $_SESSION['cart'] = array_slice($_SESSION['cart'], $_GET['id'], 1);
             } else {
                 $_SESSION['cart'] = [];
             }
-            if(isset($_GET['deleteAll']) && ( $_GET['deleteAll'] )){
-                $_SESSION['cart'] = [];
-            }
-            include "view/cart/cart.php";
-            break;
-        
-        case 'bill' :
             
             include "view/cart/bill.php";
-            break ;
+            break;
+        case 'bill':
+
+            include "view/cart/bill.php";
+            break;
+        case 'billcomfim':
+            if (isset($_POST['billcomfim'])) {
+                $name = $_POST['name'];
+                $adress = $_POST['adress'];
+                $email = $_POST['email'];
+                $sdt = $_POST['sdt'];
+                $pay = $_POST['pay'];
+                $avatar = $_POST['avatar'];
+                $ngay_dat = date('h:i:sa d/m/Y ');
+                $_GLOBALS = $tong;
+            }
+            include "view/cart/billcomfim.php";
+            break;
         case 'gioi_thieu':
             include "view/gioi_thieu.php";
             break;

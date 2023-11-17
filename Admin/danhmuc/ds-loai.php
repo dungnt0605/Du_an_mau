@@ -9,9 +9,10 @@
         <div class="flex between">
             <a href="index.php?act=addDM"><button class="text-white fw-bold">Thêm loại hàng</button></a>
             <div class="sp_ds_list_btn flex">
-                <a onclick="confirm('Bạn có muốn Xóa những mục mình vừa chọn k ?')" href="#"><button class="btn btn-dark my-3 mx-3">Chọn tất cả</button></a>
-                <button type="submit" name="deleteAll">Xóa các danh mục đã chọn</button>
-                <a href="#"><button type="submit">Bỏ chọn tất cả</button></a>
+                <form action="index.php?act=dsloai" method="POST">
+                    <!-- <a onclick="confirm('Bạn có muốn Xóa những mục mình vừa chọn k ?')" href="#"><button class="btn btn-dark my-3 mx-3">Chọn tất cả</button></a> -->
+                    <button onclick="confirm('Bạn có muốn xóa tất cả k ?')" type="submit" name="deleteAll">Xóa các danh mục đã chọn</button>
+                </form>
             </div>
         </div>
     </div>
@@ -19,7 +20,7 @@
     <table>
 
         <tr>
-            <th></th>
+            
             <th>MÃ LOẠI</th>
             <th>TÊN LOẠI</th>
             <th>ẢNH LOẠI</th>
@@ -32,11 +33,7 @@
             $deleteDM = "index.php?act=deleteDM&id=" . $key['ma_loai'];
             ?>
             <tr>
-                <td>
-                    <form action="index.php?act=dsloai" method="post">
-                        <input type="checkbox" name="">
-                    </form>
-                </td>
+                
                 <td><?= $key['ma_loai'] ?></td>
                 <td><?= $key['ten_loai'] ?></td>
                 <td>

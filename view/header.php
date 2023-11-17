@@ -17,7 +17,7 @@
 
     <header class="flex between">
         <div class="logo flex">
-            <img src="./imageT2/logo/51456b4063722b731891adeb090b6d5b-removebg-preview 1.png" alt="logo">
+        <a href="index.php"><img src="./imageT2/logo/51456b4063722b731891adeb090b6d5b-removebg-preview 1.png" alt="logo"></a>
 
         </div>
         <nav class="nav__pc flex">

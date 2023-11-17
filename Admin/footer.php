@@ -31,5 +31,5 @@
                 </div>
 </footer>
 </body>
-<script src="main.js"></script>
+<script src="../CSS/main.js"></script>
 </html>

@@ -4,11 +4,13 @@
         $adress = $_SESSION['user']['dia_chi'];
         $email = $_SESSION['user']['email'];
         $sdt = $_SESSION['user']['sdt'];
+        $avatar = $_SESSION['user']['avatar'];
     }else{
         $name = '';
         $adress = '';
         $email = '';
         $sdt = '';
+        $avatar = '';
     }
 
 ?>
@@ -18,7 +20,7 @@
         <main class="home_sp_main">
             <div class="bill-infor">
                 <h2 class="my-5">THÔNG TIN ĐẶT HÀNG</h2>
-                <form action="" method="">
+                <form action="index.php?act=billcomfim" method="POST" enctype="multipart/form-data">
                     <div class="flex between my-5 ">
                         <label for="">Người đặt hàng :</label>
                         <input type="text" name="name" value="<?=$name ?>">
@@ -35,8 +37,9 @@
                         <label for="">Điện thoại :</label>
                         <input type="number" name="sdt" value="<?=$sdt ?>">
                     </div>
-
-                    <h2 for="">Phương thức thanh toán</h2><br>
+                    <input type="hidden" name="avatar" value="<?=$avatar ?>" >
+                    
+                    <h2 >Phương thức thanh toán</h2><br>
                     <label class="label-pay" for="">Trả tiền khi nhận hàng</label>
                     <input type="radio" name="pay" id="pay">
                     <label class="label-pay" for="">Thanh toán qua ví Momo</label>
@@ -63,8 +66,8 @@
                 <?php foreach ($_SESSION['cart'] as $key) : ?>
                     <?php
 
-                    $editcart = "index.php?act=editcart&id=" . $i;
-                    $deletecart = "index.php?act=deletecart&id=" . $i;
+                    // $editcart = "index.php?act=editcart&id=" . $i;
+                    $deletebill = "index.php?act=deletebill&id=" . $i;
                     $ttien = (float)$key[2] * (int)$key[5];
                     $tong += $ttien;
 
@@ -89,7 +92,7 @@
                         <td><?= $ttien  ?> Triệu</td>
 
                         <td>
-                            <button class="sp_ds_delete" onclick="confirmDelete('<?= $deletecart ?>')">Xóa</button>
+                            <button class="sp_ds_delete" onclick="confirmDelete('<?= $deletebill ?>')">Xóa</button>
                         </td>
                     </tr>
                     <?php $i += 1; ?>
@@ -101,7 +104,7 @@
                 </tr>
             </table>
             <div class="flex">
-                <a href="index.php?act=bill"><button class="cam-btn">Đặt hàng </button></a>
+                <a href="index.php?act=billcomfim"><button class="cam-btn" name="billcomfim">Đặt hàng </button></a>
                 <a href="index.php?act=cart"><button class="cam-btn">Giỏ hàng hàng </button></a>
             </div>
 

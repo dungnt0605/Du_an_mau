@@ -33,37 +33,43 @@ $ds_bl = binh_luan_select_all();
             <?php foreach ($ds_bl as $bl) : ?>
                 <?php extract($bl); ?>
                 <div class="box_bl my-5">
-                   
+
                     <div class="content_bl"><?= $noi_dung ?></div>
                     <div class="flex">
                         <p><?= $ngay_bl ?></p>
                     </div>
                 </div>
 
-            <?php endforeach ?>
+            <?php endforeach; ?>
         </div>
-    <?php if (isset($_SESSION['user'])) { ?>
-        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" class="bl_search">
-            <div class="flex my-5">
-                <input type="hidden" name="ma_hh" value="<?= $ma_hh ?>">
-                <input type="text" name="content" placeholder="Viết bình luận...">
-                <button class="blue-btn" type="submit" name="gui_bl">Gửi bình luận</button>
-            </div>
-        </form>
-        <?php
-        if (isset($_POST['gui_bl'])) {
-            $noi_dung = $_POST['content'];
-            $ma_kh = $_SESSION['user']['ma_kh'];
-            $name = $_SESSION['user']['name'];
-            $ma_hh = $_POST['ma_hh'];
-            $ngay_bl = date('h:i:sa d/m/Y ');
-            binh_luan_insert($ma_kh, $ma_hh, $noi_dung, $ngay_bl);
-            header("location : " . $_SERVER['HTTP_REFERER']);
-        }
-        ?>
-<?php }  else{
-    echo "<p style='color: red;' class='my-5'> Hãy đăng nhập để được bình luận !</p>";
-} ?>
+        
+        <?php if (isset($_SESSION['user'])) { ?>
+            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" class="bl_search">
+                <div class="flex my-5">
+                    <input type="hidden" name="ma_hh" value="<?= $ma_hh ?>">
+                    <input type="text" name="content" placeholder="Viết bình luận...">
+                    <button class="blue-btn" type="submit" name="gui_bl">Gửi bình luận</button>
+                </div>
+            </form>
+            <?php
+            if (isset($_POST['gui_bl'])) {
+                date_default_timezone_set('Asia/Ho_Chi_Minh');
+                $noi_dung = $_POST['content'];
+                $ma_kh = $_SESSION['user']['ma_kh'];
+                $name = $_SESSION['user']['name'];
+                $ma_hh = $_POST['ma_hh'];
+                $ngay_bl = date('h:i:sa d/m/Y ');
+                
+                binh_luan_insert($ma_kh, $ma_hh, $noi_dung, $ngay_bl);
+                if (!empty($_SERVER['HTTP_REFERER']))
+                    header("Location: " . $_SERVER['HTTP_REFERER']);
+                else
+                    echo "No referrer.";
+            }
+            ?>
+        <?php } else {
+            echo "<p style='color: red;' class='my-5'> Hãy đăng nhập để được bình luận !</p>";
+        } ?>
     </div>
 </body>
 

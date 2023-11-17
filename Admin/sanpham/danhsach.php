@@ -16,9 +16,9 @@
         <div class="flex between">
             <a href="index.php?act=addSP"><button class="text-white fw-bold">Thêm loại hàng</button></a>
             <div class="sp_ds_list_btn flex">
-                <a onclick="confirm('Bạn có muốn Xóa những mục mình vừa chọn k ?')" href="#"><button class="btn btn-dark my-3 mx-3">Chọn tất cả</button></a>
-                <button type="submit" name="deleteAll">Xóa các danh mục đã chọn</button>
-                <a href="#"><button type="submit">Bỏ chọn tất cả</button></a>
+                <form action="index.php?act=deleteSP" method="POST">
+                    <button onclick="confirm('Bạn có muốn xóa tất cả k ?')" name="deleteall" type="submit">Xóa tất cả</button>
+                </form>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
     <table>
 
         <tr>
-            <th></th>
+
             <th>MÃ SẢN PHẨM</th>
             <th>TÊN SẢN PHẨM</th>
             <th>ĐƠN GIÁ</th>
@@ -44,11 +44,7 @@
             $deleteSP = "index.php?act=deleteSP&id=" . $key['ma_hh'];
             ?>
             <tr>
-                <td>
-                    <form action="index.php?act=deleteSP" method="post">
-                        <input type="checkbox" name="deleteid[]" value="<?= $key['ma_hh'] ?>">
-                    </form>
-                </td>
+
                 <td><?= $key['ma_hh'] ?></td>
                 <td><?= $key['ten_hh'] ?></td>
                 <td><?= $key['don_gia'] ?></td>

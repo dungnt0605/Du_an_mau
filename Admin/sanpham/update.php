@@ -49,10 +49,10 @@ if(is_array($sp_one)){
                 <input type="hidden" name="ma_hh" value="<?=$ma_hh ?>">
                 <!-- <img src="../imageT2/fol_2.jpg" alt=""> -->
 
+                <a href="index.php?act=ds_sp" class="my-3 ">DANH SÁCH</a>
                 <div class="row d-flex mb-5">
-                    <a href="index.php?act=ds_sp" class="my-3 ">DANH SÁCH</a>
-                    <button type="submit" name="themmoi" class="btn btn-dark w-25 ms-3 me-3 text-white fw-bold">CẬP NHẬT</button>
-                    <input type="reset" value="NHẬP LẠI" class="btn btn-secondary w-25 text-white fw-bold">
+                    <button type="submit" name="themmoi" class=" text-white fw-bold">CẬP NHẬT</button>
+                    <input type="reset" value="NHẬP LẠI" class="reset text-white fw-bold">
                 </div>
 
                 <?php 
